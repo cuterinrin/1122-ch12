@@ -1,36 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
 
 FILE *fp;
-FILE *fp2;
 
-char input;
-char original[100];
-char copy[100];
-int i=0;
+char input[100];
+char file[100];
+char string[100];
 
-printf("input original file name : ");
-scanf("%s", original);
-printf("input copy file name : ");
-scanf("%s", copy);
 
-fp = fopen(original, "r");
-fp2 = fopen(copy, "w");
+printf("input file name : ");
+scanf("%s", file);
 
-while((input=fgetc(fp)) != EOF)
+fp = fopen(file, "r");
+
+printf("input search string : ");
+scanf("%s", string);
+
+
+
+while((fgets(input, 100, fp)) != NULL)
 {	
-	fputc(input, fp2);
-	i++;
+	if(strncmp(input, string, strlen(string)) == 0) //°°À½=0 
+	{printf("find a word %s\n", input);
+	}
 }
 
-printf("copy succed. (%i copied Bytes)\n", i);
+printf("search done!\n");
 
 fclose(fp);
-fclose(fp2);
 
-	return 0;
+return 0;
 }
