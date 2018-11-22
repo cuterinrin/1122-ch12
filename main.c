@@ -8,15 +8,12 @@ char src[100] = "Programming cource";
 char dst[100];
 int i;
 
-while( src[i] != '\0')
+while( src[i] != 0)
 {
-	dst[i] = src[i];
 	i++;
 }
 
-dst[i] = '\0';
-
-printf("%s\n", dst);
+printf("%s ¿« ±Ê¿Ã : %i", src, i);
 
 
 	return 0;
