@@ -4,17 +4,21 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-char src[100] = "Programming cource";
-char dst[100];
+
+FILE *fp = NULL;
+char input[100];
 int i;
 
-while( src[i] != 0)
+fp = fopen("sample.txt", "w");
+
+for(i=0; i<3; i++)
 {
-	i++;
+printf("input a word : ");
+scanf("%s", input);
+fprintf(fp, "%s\n", input);
 }
 
-printf("%s ÀÇ ±æÀÌ : %i", src, i);
-
+fclose(fp);
 
 	return 0;
 }
